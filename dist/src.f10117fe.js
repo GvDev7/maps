@@ -22740,8 +22740,15 @@ var CustomMap = /** @class */function () {
       }
     });
   }
-  CustomMap.prototype.addUserMarker = function (user) {};
-  CustomMap.prototype.addCompanyMaker = function (company) {};
+  CustomMap.prototype.addMarker = function (mappable) {
+    new google.maps.Marker({
+      map: this.googleMap,
+      position: {
+        lat: mappable.location.lat,
+        lng: mappable.location.lng
+      }
+    });
+  };
   return CustomMap;
 }();
 exports.CustomMap = CustomMap;
@@ -22754,9 +22761,13 @@ Object.defineProperty(exports, "__esModule", {
 var User_1 = require("./User");
 var Companys_1 = require("./Companys");
 var Maps_1 = require("./Maps");
+//Create user and company instances and add markers of user and company to Map instance
 var user = new User_1.User();
 var company = new Companys_1.Company();
-new Maps_1.CustomMap('map');
+var customMap = new Maps_1.CustomMap('map');
+customMap.addMarker(user);
+customMap.addMarker(company);
+// Get the users current location
 console.log(user);
 console.log(company);
 },{"./User":"src/User.ts","./Companys":"src/Companys.ts","./Maps":"src/Maps.ts"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
