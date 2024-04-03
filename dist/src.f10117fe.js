@@ -22723,7 +22723,29 @@ var Company = /** @class */function () {
   return Company;
 }();
 exports.Company = Company;
-},{"@faker-js/faker":"node_modules/@faker-js/faker/dist/esm/index.mjs"}],"src/index.ts":[function(require,module,exports) {
+},{"@faker-js/faker":"node_modules/@faker-js/faker/dist/esm/index.mjs"}],"src/Maps.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.CustomMap = void 0;
+var CustomMap = /** @class */function () {
+  function CustomMap(divID) {
+    this.googleMap = new google.maps.Map(document.getElementById(divID), {
+      zoom: 1,
+      center: {
+        lat: 0,
+        lng: 0
+      }
+    });
+  }
+  CustomMap.prototype.addUserMarker = function (user) {};
+  CustomMap.prototype.addCompanyMaker = function (company) {};
+  return CustomMap;
+}();
+exports.CustomMap = CustomMap;
+},{}],"src/index.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -22731,11 +22753,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 var User_1 = require("./User");
 var Companys_1 = require("./Companys");
+var Maps_1 = require("./Maps");
 var user = new User_1.User();
 var company = new Companys_1.Company();
+new Maps_1.CustomMap('map');
 console.log(user);
 console.log(company);
-},{"./User":"src/User.ts","./Companys":"src/Companys.ts"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./User":"src/User.ts","./Companys":"src/Companys.ts","./Maps":"src/Maps.ts"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
