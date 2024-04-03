@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 
-class User {
+export class User {
     firstName: string;
     lastName: string;
     jobType: string;
